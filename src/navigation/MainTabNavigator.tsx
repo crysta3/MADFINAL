@@ -6,6 +6,7 @@ import AddMealScreen from '../screens/meal/AddMealScreen';
 import MealHistoryScreen from '../screens/meal/MealHistoryScreen';
 import DailySummaryScreen from '../screens/home/DailySummaryScreen';
 import ProfileScreen from '../screens/profile/ProfileScreen';
+import ChatbotScreen from '../screens/chatbot/ChatbotScreen';
 import { MainTabParamList } from './types';
 import { colors } from '../constants/colors';
 
@@ -17,6 +18,7 @@ const icons: Record<keyof MainTabParamList, keyof typeof Ionicons.glyphMap> = {
   MealHistory: 'time',
   DailySummary: 'stats-chart',
   Profile: 'person',
+  Chatbot: 'chatbubble-ellipses',
 };
 
 export default function MainTabNavigator() {
@@ -39,6 +41,11 @@ export default function MainTabNavigator() {
       })}>
       <Tab.Screen component={HomeScreen} name="Home" options={{ title: 'Dashboard' }} />
       <Tab.Screen component={AddMealScreen} name="AddMeal" options={{ title: 'Add Meal' }} />
+      <Tab.Screen
+      component={ChatbotScreen}
+      name="Chatbot"
+      options={{ title: 'NutriBot' }}
+      />
       <Tab.Screen
         component={MealHistoryScreen}
         name="MealHistory"
