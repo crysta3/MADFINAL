@@ -2,7 +2,7 @@ import { Meal } from '../../types/meal';
 import { DailySummary } from '../../types/summary';
 import { UserProfile } from '../../types/user';
 
-const GEMINI_API_KEY = 'GEMINI API KEY'; // Replace with your actual API key
+const GEMINI_API_KEY = 'AIzaSyA4kkfA0VjpYvD5DIAoLt42bJAIY4h7IEo'; // Replace with your actual API key
 const GEMINI_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
 export type GeminiMessage = {

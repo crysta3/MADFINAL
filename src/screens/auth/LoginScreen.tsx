@@ -17,13 +17,13 @@ export default function LoginScreen({ navigation }: Props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  function handleLogin() {
+  async function handleLogin() {
     if (!validators.email(email) || !validators.required(password)) {
       Alert.alert('Data belum lengkap', 'Masukkan email valid dan password Anda.');
       return;
     }
 
-    const result = login({ email, password });
+    const result = await login({ email, password });
 
     if (!result.success) {
       Alert.alert('Login gagal', result.message);

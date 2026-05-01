@@ -25,7 +25,7 @@ export const registerUser = mutation({
   },
 });
 
-export const loginUser = query({
+export const loginUser = mutation({
   args: {
     email: v.string(),
     password: v.string(),
@@ -38,6 +38,15 @@ export const loginUser = query({
         queryBuilder.eq(queryBuilder.field('password'), args.password),
       )
       .unique();
+  },
+});
+
+export const getUser = query({
+  args: {
+    userId: v.id('users'),
+  },
+  handler: async (ctx: any, args: any) => {
+    return ctx.db.get(args.userId);
   },
 });
 

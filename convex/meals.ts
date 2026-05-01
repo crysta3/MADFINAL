@@ -68,6 +68,19 @@ export const deleteMeal = mutation({
   },
 });
 
+export const getMealsByUser = query({
+  args: {
+    userId: v.id('users'),
+  },
+  handler: async (ctx: any, args: any) => {
+    return ctx.db
+      .query('meals')
+      .withIndex('by_user', (queryBuilder: any) => queryBuilder.eq('userId', args.userId))
+      .order('desc')
+      .collect();
+  },
+});
+
 export const getMealsByDate = query({
   args: {
     userId: v.id('users'),

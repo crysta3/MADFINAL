@@ -30,13 +30,13 @@ export default function OnboardingScreen() {
   const [weightKg, setWeightKg] = useState('');
   const [goal, setGoal] = useState<UserGoal>('eat_healthier');
 
-  function handleSubmit() {
+  async function handleSubmit() {
     if (!name || !age || !heightCm || !weightKg) {
       Alert.alert('Data belum lengkap', 'Lengkapi seluruh data dasar terlebih dahulu.');
       return;
     }
 
-    completeOnboarding({ name, age, gender, heightCm, weightKg, goal });
+    await completeOnboarding({ name, age, gender, heightCm, weightKg, goal });
   }
 
   return (

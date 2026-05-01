@@ -18,13 +18,13 @@ export default function RegisterScreen({ navigation }: Props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  function handleRegister() {
+  async function handleRegister() {
     if (!validators.required(name) || !validators.email(email) || password.length < 4) {
       Alert.alert('Data belum valid', 'Isi nama, email valid, dan password minimal 4 karakter.');
       return;
     }
 
-    const result = register({ name, email, password });
+    const result = await register({ name, email, password });
 
     if (!result.success) {
       Alert.alert('Register gagal', result.message);
