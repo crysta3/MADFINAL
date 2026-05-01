@@ -11,6 +11,7 @@ export type MainTabParamList = {
   MealHistory: undefined;
   DailySummary: undefined;
   Profile: undefined;
+  Chatbot: undefined;
 };
 
 export type RootStackParamList = {

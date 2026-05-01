@@ -51,7 +51,7 @@ export default function AddMealScreen({ route, navigation }: Props) {
     setValues((current) => ({ ...current, [key]: value }));
   }
 
-  function handleSubmit() {
+  async function handleSubmit() {
     const requiredFields = [
       values.name,
       values.portion,
@@ -66,7 +66,7 @@ export default function AddMealScreen({ route, navigation }: Props) {
       return;
     }
 
-    saveMeal({ ...values, mealId: mealToEdit?.id });
+    await saveMeal({ ...values, mealId: mealToEdit?.id });
     setValues(initialValues);
     navigation.setParams({ mealId: undefined });
     Alert.alert('Berhasil', mealToEdit ? 'Meal berhasil diperbarui.' : 'Meal berhasil disimpan.');

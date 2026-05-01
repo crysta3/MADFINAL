@@ -44,15 +44,9 @@ export default defineSchema({
   })
     .index('by_user', ['userId'])
     .index('by_user_date', ['userId', 'dateKey']),
-  summaries: defineTable({
+  weightLogs: defineTable({
     userId: v.id('users'),
-    dateKey: v.string(),
-    totals: v.object({
-      calories: v.number(),
-      protein: v.number(),
-      carbs: v.number(),
-      fat: v.number(),
-    }),
-    createdAt: v.string(),
-  }).index('by_user_date', ['userId', 'dateKey']),
+    weightKg: v.number(),
+    loggedAt: v.string(),
+  }).index('by_user', ['userId']),
 });
